@@ -1,0 +1,127 @@
+<!-- so i want to make a website that is a clone of facebook 
+ in files like index.html, style.css, script.js 
+ index.html be like home page then other html files for like post 
+ discover and else so lezz work this is the index.html file also add the same color the 
+ facebook website  and use bootstrap 5.3.3 and fontawesome 6.5.2  and
+ make it cool and decent with hower effects and else -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/js/fontawesome.min.js"></script>
+</head>
+<body class="bg-light">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <i class="fab fa-facebook text-primary fs-2"></i>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="page.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="friend.html"><i class="fas fa-user-friends"></i> Friends</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="watch.html"><i class="fas fa-tv"></i> Watch</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="marketplace.html"><i class="fas fa-store"></i> Marketplace</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search Facebook" aria-label="Search">
+                    <button class="btn btn-outline-primary" type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Left Sidebar -->
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="profile.html" class="list-group-item list-group-item-action"><i class="fas fa-user-circle"></i> Your Profile</a>
+                    <a href="group.html" class="list-group-item list-group-item-action"><i class="fas fa-users"></i> Groups</a>
+                    <a href="save.html" class="list-group-item list-group-item-action"><i class="fas fa-bookmark"></i> Saved</a>
+                    <a href="page.html" class="list-group-item list-group-item-action"><i class="fas fa-flag"></i> Pages</a>
+                    <a href="event.html" class="list-group-item list-group-item-action"><i class="fas fa-calendar-alt"></i> Events</a>
+                </div>
+            </div>
+
+            <!-- Main Feed -->
+            <div class="col-md-6">
+                <!-- Create Post -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="Profile Picture">
+                            <input type="text" class="form-control" placeholder="What's on your mind?">
+                        </div>
+                        <hr>
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-light"><i class="fas fa-video text-danger"></i> Live Video</button>
+                            <button class="btn btn-light"><i class="fas fa-images text-success"></i> Photo/Video</button>
+                            <button class="btn btn-light"><i class="far fa-smile text-warning"></i> Feeling/Activity</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Post -->
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <div class="d-flex align-items-center">
+                            <img src="https://via.placeholder.com/40" class="rounded-circle me-2" alt="Profile Picture">
+                            <div>
+                                <h6 class="mb-0">John Doe</h6>
+                                <small class="text-muted">2 hours ago</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">This is a sample post on our Facebook clone. How's it looking?</p>
+                        <img src="https://via.placeholder.com/500x300" class="img-fluid rounded" alt="Post Image">
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-light"><i class="far fa-thumbs-up"></i> Like</button>
+                        <button class="btn btn-light"><i class="far fa-comment"></i> Comment</button>
+                        <button class="btn btn-light"><i class="fas fa-share"></i> Share</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        Sponsored
+                    </div>
+                    <div class="card-body">
+                        <img src="https://via.placeholder.com/250x150" class="img-fluid rounded mb-2" alt="Ad">
+                        <h6>Check out our amazing product!</h6>
+                        <p class="small text-muted">www.example.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

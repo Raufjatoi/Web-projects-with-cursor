@@ -1,0 +1,105 @@
+<!-- this is the create page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create GitHub Account</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body class="bg-dark">
+    <div class="container-fluid vh-100 d-flex align-items-center justify-content-center">
+        <div class="card shadow-lg" style="max-width: 500px;">
+            <div class="card-header bg-purple text-white text-center py-3">
+                <i class="fab fa-github fa-3x"></i>
+                <h3 class="mt-2">Create a GitHub Account</h3>
+            </div>
+            <div class="card-body">
+                <form id="createAccountForm">
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Username</label>
+                        <input type="text" class="form-control" id="username" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-purple btn-lg">Create account</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center">
+                <p>Already have an account? <a href="index.html" class="text-purple">Sign in</a></p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .bg-purple {
+            background-color: #6e5494;
+        }
+        .btn-purple {
+            background-color: #6e5494;
+            color: white;
+        }
+        .btn-purple:hover {
+            background-color: #5a4579;
+            color: white;
+        }
+        .text-purple {
+            color: #6e5494;
+        }
+    </style>
+
+    <script>
+        $(document).ready(function() {
+            $('#createAccountForm').submit(function(e) {
+                e.preventDefault();
+                var username = $('#username').val();
+                var email = $('#email').val();
+                var password = $('#password').val();
+
+                // Here you would typically send the data to a server to be saved in info.db
+                // For this example, we'll simulate saving and show a success message
+                $.ajax({
+                    url: 'save_user.php', // You need to create this PHP file to handle the database operation
+                    method: 'POST',
+                    data: {
+                        username: username,
+                        email: email,
+                        password: password
+                    },
+                    success: function(response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Account created successfully!',
+                            text: 'Redirecting to login page...',
+                            timer: 2000,
+                            showConfirmButton: false
+                        }).then(() => {
+                            window.location.href = 'index.html';
+                        });
+                    },
+                    error: function() {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Something went wrong! Please try again.',
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
