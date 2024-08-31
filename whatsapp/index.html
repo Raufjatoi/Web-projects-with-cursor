@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            background-color: #111b21;
+            color: #e9edef;
+        }
+        .sidebar {
+            background-color: #202c33;
+        }
+        .main-chat {
+            background-color: #0b141a;
+        }
+        .chat-header, .message-input {
+            background-color: #202c33;
+        }
+        .chat-messages {
+            background-color: #0b141a;
+        }
+        .message-input input {
+            background-color: #2a3942;
+            color: #e9edef;
+            border: none;
+        }
+        .chat-actions i, .user-actions i, .message-input i {
+            color: #aebac1;
+        }
+        .contact-name, .contact-status {
+            color: #e9edef;
+        }
+        .send-btn {
+            background-color: #00a884;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-4 col-lg-3 sidebar">
+            <!-- User profile -->
+            <div class="user-profile">
+                <img src="img/default-avatar.png" alt="User Avatar" class="avatar">
+                <div class="user-actions">
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-comment-alt"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </div>
+            
+            <!-- Search bar -->
+            <div class="search-bar">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    </div>
+                    <input type="text" placeholder="Search or start new chat" class="form-control">
+                </div>
+            </div>
+            
+            <!-- Chat list -->
+            <div class="chat-list">
+                <!-- Chat items will be dynamically added here -->
+            </div>
+        </div>
+        
+        <!-- Main chat area -->
+        <div class="col-md-8 col-lg-9 main-chat">
+            <!-- Chat header -->
+            <div class="chat-header">
+                <img src="img/default-avatar.png" alt="Contact Avatar" class="avatar">
+                <div class="contact-info">
+                    <span class="contact-name">Contact Name</span>
+                    <span class="contact-status">online</span>
+                </div>
+                <div class="chat-actions">
+                    <i class="fas fa-search"></i>
+                    <i class="fas fa-paperclip"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </div>
+            
+            <!-- Chat messages -->
+            <div class="chat-messages">
+                <!-- Messages will be dynamically added here -->
+            </div>
+            
+            <!-- Message input -->
+            <div class="message-input">
+                <i class="far fa-smile" id="emoji-picker"></i>
+                <input type="text" placeholder="Type a message" class="form-control">
+                <i class="fas fa-microphone"></i>
+                <button class="btn send-btn"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="js/script.js"></script>
+<script>
+    // Emoji picker functionality
+    const emojiPicker = document.getElementById('emoji-picker');
+    const messageInput = document.querySelector('.message-input input');
+
+    emojiPicker.addEventListener('click', () => {
+        // Assuming emoji-data.json is loaded in window.emojiData
+        const emojiList = Object.keys(window.emojiData).slice(0, 10); // Limit to first 10 emojis for simplicity
+        const emojiPopup = document.createElement('div');
+        emojiPopup.style.position = 'absolute';
+        emojiPopup.style.bottom = '60px';
+        emojiPopup.style.left = '10px';
+        emojiPopup.style.backgroundColor = '#202c33';
+        emojiPopup.style.padding = '10px';
+        emojiPopup.style.borderRadius = '5px';
+
+        emojiList.forEach(emoji => {
+            const emojiSpan = document.createElement('span');
+            emojiSpan.textContent = emoji;
+            emojiSpan.style.cursor = 'pointer';
+            emojiSpan.style.margin = '0 5px';
+            emojiSpan.addEventListener('click', () => {
+                messageInput.value += emoji;
+                emojiPopup.remove();
+            });
+            emojiPopup.appendChild(emojiSpan);
+        });
+
+        document.body.appendChild(emojiPopup);
+    });
+</script>
+</body>
+</html>

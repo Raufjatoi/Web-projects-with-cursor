@@ -1,0 +1,157 @@
+<!-- so im creating a clone linkedin with all the features of linkedin
+ the main like home be index.html this and other html files be the other pages 
+ i also gonna add some other things i gonna use the bootstrap and the fontawesome
+ and the jquery and the popper.js 
+ and the fontawesome and the bootstrap
+ and make it exactly like linked the user be me ofc rauf jatoi from nawabshah as an ai student tha doin bs in
+ ai at quest and so few courses from cs50 like p and web 
+ so ye this be all lezz start  -->
+<DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linkedin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Logo.svg.original.svg" alt="LinkedIn" height="34">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="network.html"><i class="fas fa-user-friends"></i> My Network</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="messaging.html"><i class="fas fa-comment-dots"></i> Messaging</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="notifications.html"><i class="fas fa-bell"></i> Notifications</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="https://via.placeholder.com/30" alt="Profile" class="rounded-circle">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="profile.html">View Profile</a>
+                            <a class="dropdown-item" href="settings.html">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="signout.html">Sign Out</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Left Sidebar -->
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <img src="https://via.placeholder.com/300x100" class="card-img-top" alt="Cover">
+                    <div class="card-body text-center">
+                        <img src="https://via.placeholder.com/100" class="rounded-circle mb-3" alt="Profile">
+                        <h5 class="card-title">Rauf Jatoi</h5>
+                        <p class="card-text">AI Student at QUEST | CS50 Courses</p>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <small>Who viewed your profile</small>
+                            <span class="float-right font-weight-bold">64</span>
+                        </li>
+                        <li class="list-group-item">
+                            <small>Views of your post</small>
+                            <span class="float-right font-weight-bold">810</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Center Content -->
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex">
+                            <img src="https://via.placeholder.com/50" class="rounded-circle mr-3" alt="Profile">
+                            <input type="text" class="form-control" placeholder="Start a post">
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <button class="btn btn-light"><i class="fas fa-image text-primary"></i> Photo</button>
+                            <button class="btn btn-light"><i class="fas fa-video text-success"></i> Video</button>
+                            <button class="btn btn-light"><i class="fas fa-calendar-alt text-warning"></i> Event</button>
+                            <button class="btn btn-light"><i class="fas fa-newspaper text-danger"></i> Write article</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sample Post -->
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="d-flex mb-3">
+                            <img src="https://via.placeholder.com/50" class="rounded-circle mr-3" alt="Profile">
+                            <div>
+                                <h6 class="mb-0">John Doe</h6>
+                                <small class="text-muted">Software Engineer at Tech Co.</small>
+                            </div>
+                        </div>
+                        <p>Just completed a new project using AI and Machine Learning. Excited to share the results soon!</p>
+                        <img src="https://via.placeholder.com/600x300" class="img-fluid mb-3" alt="Post Image">
+                        <div class="d-flex justify-content-between">
+                            <button class="btn btn-light"><i class="far fa-thumbs-up"></i> Like</button>
+                            <button class="btn btn-light"><i class="far fa-comment"></i> Comment</button>
+                            <button class="btn btn-light"><i class="fas fa-share"></i> Share</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h6 class="card-title">Add to your feed</h6>
+                        <div class="d-flex mb-3">
+                            <img src="https://via.placeholder.com/50" class="rounded-circle mr-3" alt="Profile">
+                            <div>
+                                <h6 class="mb-0">Tech Company</h6>
+                                <small class="text-muted">Company • Computer Software</small>
+                                <button class="btn btn-outline-secondary btn-sm mt-2"><i class="fas fa-plus"></i> Follow</button>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <img src="https://via.placeholder.com/50" class="rounded-circle mr-3" alt="Profile">
+                            <div>
+                                <h6 class="mb-0">AI Enthusiast</h6>
+                                <small class="text-muted">AI Researcher</small>
+                                <button class="btn btn-outline-secondary btn-sm mt-2"><i class="fas fa-plus"></i> Follow</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

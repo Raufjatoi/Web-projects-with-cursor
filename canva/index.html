@@ -1,0 +1,172 @@
+<!-- so i be wanna create a clone 
+ of canva and wanna add all 
+ the features of canva 
+in this file index.html
+which will be the home page 
+or main page and other html for 
+other pages
+i wanna add the bootstrap 5.3.3 and 
+i wanna add the font awesome 6.5.0
+i wanna add the jquery 3.7.1
+i wanna add the popper.js 2.11.6
+i wanna add the bootstrap.bundle.min.js 5.3.
+    and also make it responsive for both mob and pc -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canva: Visual Suite for Everyone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="https://static.canva.com/web/images/12487a1e0770d29351bd4ce4f87ec8fe.svg" alt="Canva" height="30">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Design Spotlight
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="presentation.html">Presentations</a></li>
+                            <li><a class="dropdown-item" href="social.html">Social Media</a></li>
+                            <li><a class="dropdown-item" href="videos.html">Videos</a></li>
+                            <li><a class="dropdown-item" href="print.html">Print Products</a></li>
+                            <li><a class="dropdown-item" href="websites.html">Websites</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="templates.html">Templates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="learn.html">Learn</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="pricing.html">Pricing</a>
+                    </li>
+                </ul>
+                <form class="d-flex me-3">
+                    <input class="form-control me-2" type="search" placeholder="Try 'logo'" aria-label="Search">
+                </form>
+                <div class="d-flex">
+                    <a href="login.html" class="btn btn-outline-secondary me-2">Log in</a>
+                    <a href="signup.html" class="btn btn-primary">Sign up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-light text-center py-5">
+        <div class="container">
+            <h1 class="display-4 fw-bold">What will you design today?</h1>
+            <p class="lead mb-4">Canva makes it easy to create and share professional designs.</p>
+            <a href="design.html" class="btn btn-primary btn-lg">Start designing</a>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://static.canva.com/anon_home/benefits-create-en-1200x780.jpg" class="card-img-top" alt="Create designs">
+                        <div class="card-body">
+                            <h5 class="card-title">Create designs for everything</h5>
+                            <p class="card-text">Posters, logos, social media posts, and more.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://static.canva.com/anon_home/benefits-collaborate-en-1200x780.jpg" class="card-img-top" alt="Collaborate">
+                        <div class="card-body">
+                            <h5 class="card-title">Collaborate with your team</h5>
+                            <p class="card-text">Work together in real-time on any project.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="https://static.canva.com/anon_home/benefits-publish-en-1200x780.jpg" class="card-img-top" alt="Publish anywhere">
+                        <div class="card-body">
+                            <h5 class="card-title">Publish, print, or present</h5>
+                            <p class="card-text">Share your designs online, in print, or in person.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-3">
+                    <h5>Discover</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="templates.html" class="text-muted">Templates</a></li>
+                        <li><a href="features.html" class="text-muted">Features</a></li>
+                        <li><a href="apps.html" class="text-muted">Apps</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Learn</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="blog.html" class="text-muted">Blog</a></li>
+                        <li><a href="tutorials.html" class="text-muted">Tutorials</a></li>
+                        <li><a href="courses.html" class="text-muted">Courses</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted">Help Center</a></li>
+                        <li><a href="#" class="text-muted">Contact Us</a></li>
+                        <li><a href="#" class="text-muted">Community</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <h5>Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted">About Us</a></li>
+                        <li><a href="#" class="text-muted">Careers</a></li>
+                        <li><a href="#" class="text-muted">Legal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2023 Canva Clone. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-muted me-3"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="text-muted me-3"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="text-muted me-3"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-muted"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

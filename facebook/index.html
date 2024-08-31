@@ -94,7 +94,18 @@
                                 <small class="text-muted">2 hours ago</small>
                             </div>
                         </div>
-                    </div>
+                        $.ajax({
+                            url: 'delete_note.php',
+                            method: 'POST',
+                            data: { title: title },
+                            success: function(deleteResponse) {
+                                if (deleteResponse === 'success') {
+                                    Swal.fire('Deleted!', 'Your note has been deleted.', 'success');
+                                } else {
+                                    Swal.fire('Error!', 'Failed to delete the note.', 'error');
+                                }
+                            }
+                        });        </div>
                     <div class="card-body">
                         <p class="card-text">This is a sample post on our Facebook clone. How's it looking?</p>
                         <img src="https://via.placeholder.com/500x300" class="img-fluid rounded" alt="Post Image">

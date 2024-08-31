@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatGPT Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            background-color: #343541;
+            color: #ececf1;
+        }
+
+        .sidebar {
+            background-color: #202123;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 260px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .chat-container {
+            margin-left: 260px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .message {
+            max-width: 80%;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .user-message {
+            margin-left: auto;
+        }
+
+        .ai-message {
+            margin-right: auto;
+        }
+
+        .input-area {
+            background-color: #40414f;
+            padding: 20px;
+        }
+
+        #user-input {
+            background-color: #40414f;
+            color: #ececf1;
+            border: 1px solid #565869;
+        }
+
+        #send-button {
+            background-color: #19c37d;
+            border-color: #19c37d;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                z-index: 1000;
+            }
+
+            .sidebar.show {
+                transform: translateX(0);
+            }
+
+            .chat-container {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid p-0">
+        <div class="row g-0">
+            <div class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" href="#">
+                                <i class="bi bi-plus-circle"></i> New chat
+                            </a>
+                        </li>
+                        <!-- Add more sidebar items here -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-9 col-lg-10 chat-container">
+                <div class="chat-messages" id="chat-messages">
+                    <!-- Chat messages will be appended here -->
+                </div>
+                <div class="input-area">
+                    <div class="input-group mb-3">
+                        <input type="text" id="user-input" class="form-control" placeholder="Send a message...">
+                        <button class="btn btn-primary" type="button" id="send-button">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        const commonReplies = [
+            "That's an interesting question. Let me think about it for a moment.",
+            "I'm here to help! What specific information are you looking for?",
+            "Could you provide more context? That would help me give a more accurate response.",
+            "I'm afraid I don't have personal opinions, but I can provide factual information on that topic.",
+            "That's a complex issue. Let's break it down into smaller parts.",
+            "I'm not able to access real-time information, but I can tell you what I know based on my training data.",
+            "I'm happy to explain that in more detail. What aspect would you like me to focus on?",
+            "That's a great question! Let's explore it together.",
+            "I'm an AI language model, so I don't have personal experiences, but I can share general information about that.",
+            "I apologize, but I'm not able to perform that action. Is there something else I can help you with?"
+        ];
+
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
+            messageDiv.innerHTML = `<p>${content}</p>`;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function getAIResponse(userMessage) {
+            // This is a simple implementation. In a real scenario, you'd call an API.
+            if (userMessage.toLowerCase().includes('hello') || userMessage.toLowerCase().includes('hi')) {
+                return "Hello! How can I assist you today?";
+            } else if (userMessage.toLowerCase().includes('bye') || userMessage.toLowerCase().includes('goodbye')) {
+                return "Goodbye! If you have any more questions, feel free to ask.";
+            } else {
+                return commonReplies[Math.floor(Math.random() * commonReplies.length)];
+            }
+        }
+
+        function handleUserInput() {
+            const userMessage = userInput.value.trim();
+            if (userMessage) {
+                addMessage(userMessage, true);
+                userInput.value = '';
+                
+                setTimeout(() => {
+                    const aiResponse = getAIResponse(userMessage);
+                    addMessage(aiResponse);
+                }, 1000);
+            }
+        }
+
+        sendButton.addEventListener('click', handleUserInput);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleUserInput();
+            }
+        });
+
+        // Mobile sidebar toggle
+        document.querySelector('.navbar-toggler').addEventListener('click', () => {
+            document.querySelector('.sidebar').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

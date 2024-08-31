@@ -1,0 +1,138 @@
+<!-- this is the messaging page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaging | LinkedIn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Logo.svg.original.svg" alt="LinkedIn" height="34">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="network.html"><i class="fas fa-user-friends"></i> My Network</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="messaging.html"><i class="fas fa-comment-dots"></i> Messaging</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="notifications.html"><i class="fas fa-bell"></i> Notifications</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="https://via.placeholder.com/30" alt="Profile" class="rounded-circle">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="profile.html">View Profile</a>
+                            <a class="dropdown-item" href="settings.html">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="signout.html">Sign Out</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Left Sidebar - Conversations List -->
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">Messages</h5>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/40" alt="User 1" class="rounded-circle mr-2">
+                                    <div>
+                                        <h6 class="mb-0">John Doe</h6>
+                                        <small class="text-muted">Hey, how's it going?</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/40" alt="User 2" class="rounded-circle mr-2">
+                                    <div>
+                                        <h6 class="mb-0">Jane Smith</h6>
+                                        <small class="text-muted">Thanks for the connection!</small>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="d-flex align-items-center">
+                                    <img src="https://via.placeholder.com/40" alt="User 3" class="rounded-circle mr-2">
+                                    <div>
+                                        <h6 class="mb-0">Mike Johnson</h6>
+                                        <small class="text-muted">Let's schedule a meeting</small>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right Side - Message Content -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0">John Doe</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="message-list">
+                            <div class="message received">
+                                <p>Hey Rauf, how's your AI project coming along?</p>
+                                <small class="text-muted">10:30 AM</small>
+                            </div>
+                            <div class="message sent">
+                                <p>Hi John! It's going well, thanks for asking. I'm currently working on implementing a neural network.</p>
+                                <small class="text-muted">10:35 AM</small>
+                            </div>
+                            <div class="message received">
+                                <p>That sounds interesting! Would you like to discuss it over coffee sometime this week?</p>
+                                <small class="text-muted">10:40 AM</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <form>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Type a message...">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

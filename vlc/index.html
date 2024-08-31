@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLC Clone</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/player.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="assets/images/logo.png" alt="VLC Clone Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="open.html" id="openFile">Open File</a></li>
+                    <li><a href="playlist.html" id="openPlaylist">Playlist</a></li>
+                    <li><a href="settings.html" id="settings">Settings</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div id="player">
+                <video id="videoPlayer">
+                    Your browser does not support the video tag.
+                </video>
+                <div id="subtitles"></div>
+                <div class="controls">
+                    <button id="playPauseBtn"><img src="assets/images/icons/play.svg" alt="Play/Pause"></button>
+                    <button id="stopBtn"><img src="assets/images/icons/stop.svg" alt="Stop"></button>
+                    <input type="range" id="seekBar" value="0">
+                    <button id="muteBtn"><img src="assets/images/icons/volume.svg" alt="Mute"></button>
+                    <input type="range" id="volumeBar" min="0" max="1" step="0.1" value="1">
+                    <button id="fullscreenBtn"><img src="assets/images/icons/fullscreen.svg" alt="Fullscreen"></button>
+                    <button id="subtitleToggle">CC</button>
+                </div>
+            </div>
+
+            <div id="playlist">
+                <h2>Playlist</h2>
+                <ul id="playlistItems"></ul>
+                <div class="playlist-controls">
+                    <button id="prevBtn">Previous</button>
+                    <button id="nextBtn">Next</button>
+                    <button id="shuffleBtn">Shuffle</button>
+                    <button id="clearPlaylistBtn">Clear Playlist</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2023 VLC Clone. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/playlist.js"></script>
+    <script src="js/subtitles.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!-- this is jobs page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jobs | LinkedIn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Logo.svg.original.svg" alt="LinkedIn" height="34">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="network.html"><i class="fas fa-user-friends"></i> My Network</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="messaging.html"><i class="fas fa-comment-dots"></i> Messaging</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="notifications.html"><i class
+="fas fa-bell"></i> Notifications</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="https://via.placeholder.com/30" alt="Profile" class="rounded-circle">
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="profile.html">View Profile</a>
+                            <a class="dropdown-item" href="settings.html">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="signout.html">Sign Out</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Left Sidebar -->
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Your Job Preferences</h5>
+                        <p class="card-text">Update your job preferences to get more relevant job recommendations.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Update Preferences</a>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Job Seeker Guidance</h5>
+                        <p class="card-text">Get tips and resources to help with your job search.</p>
+                        <a href="#" class="btn btn-outline-secondary btn-sm">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="col-md-6">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Job Search</h5>
+                        <form>
+                            <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" class="form-control" placeholder="Job title, keyword, or company">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <input type="text" class="form-control" placeholder="Location">
+                                </div>
+                                <div class="col-md-2 mb-3">
+                                    <button type="submit" class="btn btn-primary btn-block">Search</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Recommended Jobs</h5>
+                        <div class="job-listing">
+                            <h6>AI Engineer</h6>
+                            <p>TechCorp Inc. - Nawabshah, Pakistan</p>
+                            <small class="text-muted">Posted 2 days ago</small>
+                        </div>
+                        <hr>
+                        <div class="job-listing">
+                            <h6>Machine Learning Specialist</h6>
+                            <p>DataTech Solutions - Remote</p>
+                            <small class="text-muted">Posted 1 week ago</small>
+                        </div>
+                        <hr>
+                        <div class="job-listing">
+                            <h6>Python Developer</h6>
+                            <p>SoftwareX - Karachi, Pakistan</p>
+                            <small class="text-muted">Posted 3 days ago</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Job Application Settings</h5>
+                        <p class="card-text">Manage your resume, cover letters, and job alerts.</p>
+                        <a href="#" class="btn btn-outline-primary btn-sm">Manage Settings</a>
+                    </div>
+                </div>
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Salary Insights</h5>
+                        <p class="card-text">Compare your salary with others in your field.</p>
+                        <a href="#" class="btn btn-outline-secondary btn-sm">View Insights</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-light text-center text-lg-start mt-4">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">About LinkedIn</h5>
+                    <p>
+                        LinkedIn is the world's largest professional network, helping people discover job opportunities and connect with others in their field.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Quick Links</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#!" class="text-dark">About</a></li>
+                        <li><a href="#!" class="text-dark">Careers</a></li>
+                        <li><a href="#!" class="text-dark">Advertising</a></li>
+                        <li><a href="#!" class="text-dark">Small Business</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Support</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#!" class="text-dark">Help Center</a></li>
+                        <li><a href="#!" class="text-dark">Privacy & Terms</a></li>
+                        <li><a href="#!" class="text-dark">Accessibility</a></li>
+                        <li><a href="#!" class="text-dark">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 LinkedIn Corporation
+        </div>
+    </footer>
+</body>
+</html>

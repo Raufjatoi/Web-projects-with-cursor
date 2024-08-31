@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude Clone</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f7f7f8;
+            color: #353740;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e5e5;
+        }
+
+        .navbar-brand {
+            font-weight: bold;
+            color: #10a37f;
+        }
+
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .message {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .user-message {
+            background-color: #ffffff;
+            border: 1px solid #e5e5e5;
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        .ai-message {
+            background-color: #f0f4f8;
+            border: 1px solid #e5e5e5;
+            border-radius: 5px;
+            padding: 15px;
+        }
+
+        .input-area {
+            background-color: #ffffff;
+            border-top: 1px solid #e5e5e5;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        #user-input {
+            border: 1px solid #e5e5e5;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        #send-button {
+            background-color: #10a37f;
+            border-color: #10a37f;
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .typing-indicator span {
+            height: 8px;
+            width: 8px;
+            background-color: #10a37f;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            opacity: 0.4;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.2); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.4; }
+        }
+
+        .typing-indicator span:nth-child(2) { animation-delay: 0.3s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.6s; }
+
+        @media (max-width: 768px) {
+            .chat-container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Claude</a>
+        </div>
+    </nav>
+
+    <div class="chat-container mb-5" id="chat-messages">
+        <!-- Chat messages will be appended here -->
+    </div>
+
+    <div class="input-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group">
+                        <textarea id="user-input" class="form-control" rows="1" placeholder="Send a message..."></textarea>
+                        <button class="btn btn-primary" type="button" id="send-button">
+                            <i class="bi bi-send"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        const commonReplies = [
+            "That's an interesting point. Let me elaborate on that.",
+            "I'm here to assist you. What specific information are you looking for?",
+            "Could you provide more context? That would help me give a more accurate and helpful response.",
+            "I don't have personal opinions, but I can provide factual information on that topic.",
+            "That's a complex issue. Let's break it down and examine it step by step.",
+            "I don't have access to real-time information, but I can tell you what I know based on my training data.",
+            "I'd be happy to explain that in more detail. Which aspect would you like me to focus on?",
+            "That's a great question! Let's explore it together.",
+            "As an AI language model, I don't have personal experiences, but I can share general information about that topic.",
+            "I apologize, but I'm not able to perform that action. Is there something else I can help you with?",
+            "Let me think about that for a moment to ensure I provide the most accurate and helpful response.",
+            "That's an intriguing perspective. Have you considered looking at it from this angle as well?",
+            "I'm designed to be helpful, harmless, and honest. With that in mind, here's my thoughts on your question."
+        ];
+
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
+            messageDiv.innerHTML = `<p>${content}</p>`;
+            chatMessages.appendChild(messageDiv);
+            window.scrollTo(0, document.body.scrollHeight);
+        }
+
+        function showTypingIndicator() {
+            const indicatorDiv = document.createElement('div');
+            indicatorDiv.className = 'typing-indicator';
+            indicatorDiv.innerHTML = '<span></span><span></span><span></span>';
+            chatMessages.appendChild(indicatorDiv);
+            window.scrollTo(0, document.body.scrollHeight);
+            return indicatorDiv;
+        }
+
+        function hideTypingIndicator(indicator) {
+            chatMessages.removeChild(indicator);
+        }
+
+        function getAIResponse(userMessage) {
+            if (userMessage.toLowerCase().includes('hello') || userMessage.toLowerCase().includes('hi')) {
+                return "Hello! I'm Claude, an AI assistant. How can I help you today?";
+            } else if (userMessage.toLowerCase().includes('bye') || userMessage.toLowerCase().includes('goodbye')) {
+                return "Goodbye! If you have any more questions in the future, feel free to ask. I'm here to help.";
+            } else {
+                return commonReplies[Math.floor(Math.random() * commonReplies.length)];
+            }
+        }
+
+        function handleUserInput() {
+            const userMessage = userInput.value.trim();
+            if (userMessage) {
+                addMessage(userMessage, true);
+                userInput.value = '';
+                
+                const typingIndicator = showTypingIndicator();
+                
+                setTimeout(() => {
+                    hideTypingIndicator(typingIndicator);
+                    const aiResponse = getAIResponse(userMessage);
+                    addMessage(aiResponse);
+                }, 2000);
+            }
+        }
+
+        sendButton.addEventListener('click', handleUserInput);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                handleUserInput();
+            }
+        });
+
+        // Auto-resize textarea
+        userInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+        });
+    </script>
+</body>
+</html>

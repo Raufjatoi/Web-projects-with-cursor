@@ -1,0 +1,67 @@
+/* this is the effects.css file */
+/* Effects styles for VLC Clone */
+
+/* Brightness adjustment */
+.brightness-adjustment {
+    filter: brightness(1); /* Default brightness */
+}
+
+/* Contrast adjustment */
+.contrast-adjustment {
+    filter: contrast(100%); /* Default contrast */
+}
+
+/* Saturation adjustment */
+.saturation-adjustment {
+    filter: saturate(100%); /* Default saturation */
+}
+
+/* Hue rotation */
+.hue-rotation {
+    filter: hue-rotate(0deg); /* Default hue */
+}
+
+/* Sepia effect */
+.sepia-effect {
+    filter: sepia(0%); /* Default: no sepia */
+}
+
+/* Grayscale effect */
+.grayscale-effect {
+    filter: grayscale(0%); /* Default: no grayscale */
+}
+
+/* Invert colors effect */
+.invert-colors {
+    filter: invert(0%); /* Default: no inversion */
+}
+
+/* Blur effect */
+.blur-effect {
+    filter: blur(0px); /* Default: no blur */
+}
+
+/* Transition for smooth effect changes */
+#videoPlayer {
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Slider styles for effect controls */
+.effect-slider {
+    width: 100%;
+    margin: 10px 0;
+}
+
+/* Effect control container */
+.effect-controls {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+}
+
+.effect-controls label {
+    color: white;
+    margin-bottom: 5px;
+}

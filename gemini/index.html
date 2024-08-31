@@ -1,0 +1,296 @@
+<!-- ok so i be creating a clone of gemini pro 
+ it be same like tha like it have all the 
+ components use the bootstrap 
+ to add all the designs and also make 
+ it responsive for both mob and laptop
+ and also add the js to like make it functional a lille 
+ it have some common answers like 
+ im gemini clone 
+ created by rauf and like tha 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gemini Pro Clone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #202124;
+            --navbar-bg: #ffffff;
+            --user-message-bg: #e8f0fe;
+            --ai-message-bg: #f1f3f4;
+            --input-bg: #ffffff;
+            --button-bg: #8ab4f8;
+            --button-hover: #669df6;
+            --border-color: #dadce0;
+        }
+
+        .dark-mode {
+            --bg-color: #202124;
+            --text-color: #e8eaed;
+            --navbar-bg: #303134;
+            --user-message-bg: #3c4043;
+            --ai-message-bg: #303134;
+            --input-bg: #303134;
+            --button-bg: #8ab4f8;
+            --button-hover: #669df6;
+            --border-color: #5f6368;
+        }
+
+        body {
+            font-family: 'Google Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            background-color: var(--navbar-bg);
+            box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand img {
+            height: 24px;
+            margin-right: 8px;
+        }
+
+        .chat-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            max-width: 750px;
+            margin: 70px auto 0;
+            padding: 20px;
+        }
+
+        #chat-messages {
+            flex-grow: 1;
+            overflow-y: auto;
+            padding: 20px 0;
+        }
+
+        .message {
+            border-radius: 18px;
+            padding: 12px 18px;
+            margin-bottom: 10px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+
+        .user-message {
+            background-color: var(--user-message-bg);
+            align-self: flex-end;
+            margin-left: auto;
+        }
+
+        .ai-message {
+            background-color: var(--ai-message-bg);
+            align-self: flex-start;
+            margin-right: auto;
+        }
+
+        .input-container {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 750px;
+        }
+
+        #user-input {
+            border-radius: 24px;
+            padding: 12px 20px;
+            background-color: var(--input-bg);
+            color: var(--text-color);
+            border: 1px solid var(--border-color);
+        }
+
+        #send-button {
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--button-bg);
+            border: none;
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        #send-button:hover {
+            background-color: var(--button-hover);
+        }
+
+        #theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 24px;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .gemini-loader {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-block;
+            position: relative;
+            background: linear-gradient(0deg, rgba(255, 61, 0, 0.2) 33%, #ff3d00 100%);
+            box-sizing: border-box;
+            animation: geminiRotation 1s linear infinite;
+        }
+
+        .gemini-loader::after {
+            content: '';  
+            box-sizing: border-box;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--bg-color);
+        }
+
+        @keyframes geminiRotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            padding: 12px 18px;
+            background-color: var(--ai-message-bg);
+            border-radius: 18px;
+            margin-bottom: 10px;
+            align-self: flex-start;
+        }
+
+        @media (max-width: 768px) {
+            .chat-container {
+                margin-top: 60px;
+                padding: 10px;
+            }
+
+            .input-container {
+                bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://www.gstatic.com/lamda/images/gemini_sparkle_v002_d4735304ff6292a690345.svg" alt="Gemini Logo">
+                Gemini
+            </a>
+            <button id="theme-toggle">🌓</button>
+        </div>
+    </nav>
+
+    <div class="chat-container">
+        <div id="chat-messages">
+            <!-- Chat messages will be appended here -->
+        </div>
+    </div>
+
+    <div class="input-container">
+        <div class="input-group">
+            <input type="text" id="user-input" class="form-control" placeholder="Enter a prompt here">
+            <button class="btn" type="button" id="send-button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z" fill="#fff"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        const themeToggle = document.getElementById('theme-toggle');
+
+        function addMessage(content, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user-message' : 'ai-message'}`;
+            messageDiv.textContent = content;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTypingIndicator() {
+            const indicatorDiv = document.createElement('div');
+            indicatorDiv.className = 'typing-indicator';
+            indicatorDiv.innerHTML = '<span class="gemini-loader"></span>';
+            chatMessages.appendChild(indicatorDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            return indicatorDiv;
+        }
+
+        function hideTypingIndicator(indicator) {
+            chatMessages.removeChild(indicator);
+        }
+
+        function handleUserInput() {
+            const userMessage = userInput.value.trim();
+            if (userMessage) {
+                addMessage(userMessage, true);
+                userInput.value = '';
+                
+                const typingIndicator = showTypingIndicator();
+                
+                // Simulate AI response
+                setTimeout(() => {
+                    hideTypingIndicator(typingIndicator);
+                    let response;
+                    if (userMessage.toLowerCase().includes('who are you')) {
+                        response = "I'm a Gemini Pro clone created by Rauf. How can I assist you today?";
+                    } else {
+                        response = "I'm a simple clone with limited functionality. For more advanced queries, please use the real Gemini Pro.";
+                    }
+                    addMessage(response);
+                }, 2000); // Increased delay to show the animation
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('dark-mode');
+            themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌓';
+        }
+
+        sendButton.addEventListener('click', handleUserInput);
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                handleUserInput();
+            }
+        });
+        themeToggle.addEventListener('click', toggleTheme);
+    </script>
+</body>
+</html>

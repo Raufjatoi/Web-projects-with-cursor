@@ -1,0 +1,122 @@
+<!-- this is setting page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | LinkedIn</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Logo.svg.original.svg" alt="LinkedIn" height="34">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="network.html"><i class="fas fa-user-friends"></i> My Network</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="jobs.html"><i class="fas fa-briefcase"></i> Jobs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="messaging.html"><i class="fas fa-comment-dots"></i> Messaging</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="notifications.html"><i class="fas fa-bell"></i> Notifications</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="profile.html">
+                            <img src="https://via.placeholder.com/30" alt="Profile" class="rounded-circle mr-1" width="30" height="30">
+                            Me
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="setting.html"><i class="fas fa-cog"></i> Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+        <h1 class="mb-4">Settings</h1>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="#account" class="list-group-item list-group-item-action active">Account</a>
+                    <a href="#privacy" class="list-group-item list-group-item-action">Privacy</a>
+                    <a href="#notifications" class="list-group-item list-group-item-action">Notifications</a>
+                    <a href="#security" class="list-group-item list-group-item-action">Security</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div id="account" class="settings-section">
+                    <h2>Account Settings</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" value="user@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="********">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-light text-center text-lg-start mt-4">
+        <div class="container p-4">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">LinkedIn</h5>
+                    <p>
+                        Connect with professionals, find jobs, and grow your career on LinkedIn.
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase">Links</h5>
+                    <ul class="list-unstyled mb-0">
+                        <li><a href="#!" class="text-dark">About</a></li>
+                        <li><a href="#!" class="text-dark">Careers</a></li>
+                        <li><a href="#!" class="text-dark">Advertising</a></li>
+                        <li><a href="#!" class="text-dark">Small Business</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-0">Support</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#!" class="text-dark">Help Center</a></li>
+                        <li><a href="#!" class="text-dark">Privacy & Terms</a></li>
+                        <li><a href="#!" class="text-dark">Mobile App</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2023 LinkedIn Corporation
+        </div>
+    </footer>
+</body>
+</html>

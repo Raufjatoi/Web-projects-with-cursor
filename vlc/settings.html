@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLC Clone - Settings</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <header>
+        <h1>VLC Clone</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="open.html">Open Media</a></li>
+                <li><a href="playlist.html">Playlist</a></li>
+                <li><a href="settings.html">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Settings</h2>
+        <form id="settingsForm">
+            <div class="setting-group">
+                <h3>Playback</h3>
+                <label for="autoplay">
+                    <input type="checkbox" id="autoplay" name="autoplay">
+                    Autoplay videos
+                </label>
+                <label for="loop">
+                    <input type="checkbox" id="loop" name="loop">
+                    Loop playlist
+                </label>
+            </div>
+
+            <div class="setting-group">
+                <h3>Audio</h3>
+                <label for="defaultVolume">Default Volume:</label>
+                <input type="range" id="defaultVolume" name="defaultVolume" min="0" max="100" value="50">
+            </div>
+
+            <div class="setting-group">
+                <h3>Video</h3>
+                <label for="defaultQuality">Default Quality:</label>
+                <select id="defaultQuality" name="defaultQuality">
+                    <option value="auto">Auto</option>
+                    <option value="1080p">1080p</option>
+                    <option value="720p">720p</option>
+                    <option value="480p">480p</option>
+                </select>
+            </div>
+
+            <div class="setting-group">
+                <h3>Interface</h3>
+                <label for="theme">Theme:</label>
+                <select id="theme" name="theme">
+                    <option value="light">Light</option>
+                    <option value="dark">Dark</option>
+                </select>
+            </div>
+
+            <button type="submit">Save Settings</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 VLC Clone. All rights reserved.</p>
+    </footer>
+
+    <script src="js/settings.js"></script>
+</body>
+</html>
