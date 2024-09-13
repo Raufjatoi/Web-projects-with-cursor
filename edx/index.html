@@ -1,0 +1,93 @@
+<!-- ok so im creating the clone of edx website which be completele same like tha with some bootstramp and make it fullu 
+ responsivible and its file structure be like tha 
+ edx-clone/
+├── index.html
+├── courses.html
+├── course-detail.html
+├── css/
+│   ├── style.css
+│   └── responsive.css
+├── js/
+│   └── main.js
+so this is the index.html lezz start i be connecting and using all the other files to 
+like in tha structure -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edX Clone</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <h5 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+                        <span>edX Clone</span>
+                    </h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#welcome">Welcome</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#courses">Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#course-detail">Course Detail</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 main-content">
+                <section id="welcome">
+                    <h2 class="mt-4">Welcome to edX Clone</h2>
+                    <p>Explore a variety of courses and start your learning journey today!</p>
+                </section>
+
+                <section id="courses">
+                    <h2 class="mt-4 section-header">Our Courses</h2>
+                    <div class="row">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card course-card">
+                                <img src="img/course1.png" class="card-img-top course-image" alt="Course 1">
+                                <div class="card-body">
+                                    <h5 class="card-title">Course 1</h5>
+                                    <p class="card-text">A comprehensive course on subject 1.</p>
+                                    <a href="course-detail.html" class="btn btn-primary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card course-card">
+                                <img src="img/course2.png" class="card-img-top course-image" alt="Course 2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Course 2</h5>
+                                    <p class="card-text">A comprehensive course on subject 2.</p>
+                                    <a href="course-detail.html" class="btn btn-primary">Learn More</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="course-detail">
+                    <h2 class="mt-4 section-header">Course Detail</h2>
+                    <p>Details about the selected course will be displayed here.</p>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

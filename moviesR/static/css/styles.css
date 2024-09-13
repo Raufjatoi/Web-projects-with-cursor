@@ -1,0 +1,8 @@
+body {
+    padding-top: 20px;
+    background-color: #121212; /* Dark background for a sleek look */
+    color: #ffffff; /* White text for contrast */
+    font-family: 'Roboto', sans-serif; /* Modern, clean font */
+    margin: 0;
+    line-height: 1.6;
+}

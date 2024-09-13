@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allergy Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #9b59b6;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .chat-container {
+            background-color: #2d2d2d;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .chat-message {
+            background-color: #3d3d3d;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .btn-purple {
+            background-color: #9b59b6;
+            color: #ffffff;
+            border: none;
+            margin: 5px;
+        }
+        .btn-purple:hover {
+            background-color: #8e44ad;
+            color: #ffffff;
+        }
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .action-buttons i {
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .language-options {
+            display: none;
+            position: absolute;
+            background-color: #2d2d2d;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        .language-options button {
+            display: block;
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 5px;
+            background-color: #3d3d3d;
+            color: #ffffff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .language-options button:hover {
+            background-color: #4d4d4d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Allergy Predictor</h1>
+        <div class="chat-container">
+            <div class="chat-message">
+                Welcome to the Allergy Predictor. I'll ask you a few questions to assess your risk. Please answer honestly.
+            </div>
+            <div class="chat-message">
+                Do you experience sneezing or a runny nose? (Yes/No)
+            </div>
+            <div>
+                <button class="btn btn-purple">Yes</button>
+                <button class="btn btn-purple">No</button>
+            </div>
+        </div>
+        <div class="action-buttons">
+            <a href="index.html" class="btn btn-purple"><i class="fas fa-arrow-left"></i> Back</a>
+            <div>
+                <i class="fas fa-paper-plane text-white me-3"></i>
+                <i class="fas fa-volume-up text-white me-3" id="textToSpeech"></i>
+                <i class="fas fa-language text-white" id="translate"></i>
+                <div class="language-options" id="languageOptions">
+                    <button data-lang="zh">Chinese</button>
+                    <button data-lang="hi">Hindi</button>
+                    <button data-lang="ur">Urdu</button>
+                    <button data-lang="en">English</button>
+                    <button data-lang="ru">Russian</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Text-to-speech functionality
+        const textToSpeech = document.getElementById('textToSpeech');
+        const synth = window.speechSynthesis;
+
+        textToSpeech.addEventListener('click', () => {
+            const messages = document.querySelectorAll('.chat-message');
+            messages.forEach(message => {
+                const utterance = new SpeechSynthesisUtterance(message.textContent);
+                synth.speak(utterance);
+            });
+        });
+
+        // Translation functionality
+        const translateButton = document.getElementById('translate');
+        const languageOptions = document.getElementById('languageOptions');
+        let currentLanguage = 'en';
+
+        translateButton.addEventListener('click', () => {
+            languageOptions.style.display = languageOptions.style.display === 'none' ? 'block' : 'none';
+        });
+
+        languageOptions.addEventListener('click', (event) => {
+            if (event.target.tagName === 'BUTTON') {
+                const selectedLanguage = event.target.getAttribute('data-lang');
+                translateTo(selectedLanguage);
+                languageOptions.style.display = 'none';
+            }
+        });
+
+        function translateTo(lang) {
+            switch (lang) {
+                case 'zh':
+                    translateToChinese();
+                    break;
+                case 'hi':
+                    translateToHindi();
+                    break;
+                case 'ur':
+                    translateToUrdu();
+                    break;
+                case 'en':
+                    translateToEnglish();
+                    break;
+                case 'ru':
+                    translateToRussian();
+                    break;
+            }
+            currentLanguage = lang;
+        }
+
+        function translateToChinese() {
+            document.querySelector('h1').textContent = '过敏预测器';
+            document.querySelector('.chat-message:first-child').textContent = '欢迎使用过敏预测器。我将问您几个问题来评估您的风险。请如实回答。';
+            document.querySelector('.chat-message:nth-child(2)').textContent = '您是否经常打喷嚏或流鼻涕？（是/否）';
+            document.querySelectorAll('.btn-purple')[0].textContent = '是';
+            document.querySelectorAll('.btn-purple')[1].textContent = '否';
+            document.querySelector('.btn-purple i').nextSibling.textContent = ' 返回';
+        }
+
+        function translateToHindi() {
+            document.querySelector('h1').textContent = 'एलर्जी प्रेडिक्टर';
+            document.querySelector('.chat-message:first-child').textContent = 'एलर्जी प्रेडिक्टर में आपका स्वागत है। मैं आपके जोखिम का आकलन करने के लिए कुछ प्रश्न पूछूंगा। कृपया ईमानदारी से उत्तर दें।';
+            document.querySelector('.chat-message:nth-child(2)').textContent = 'क्या आपको छींक आती है या नाक बहती है? (हां/नहीं)';
+            document.querySelectorAll('.btn-purple')[0].textContent = 'हां';
+            document.querySelectorAll('.btn-purple')[1].textContent = 'नहीं';
+            document.querySelector('.btn-purple i').nextSibling.textContent = ' वापस';
+        }
+
+        function translateToUrdu() {
+            document.querySelector('h1').textContent = 'الرجی پیش گو';
+            document.querySelector('.chat-message:first-child').textContent = 'الرجی پیش گو میں خوش آمدید۔ میں آپ کے خطرے کا اندازہ لگانے کے لیے آپ سے کچھ سوالات پوچھوں گا۔ براہ کرم ایمانداری سے جواب دیں۔';
+            document.querySelector('.chat-message:nth-child(2)').textContent = 'کیا آپ کو چھینک آتی ہے یا ناک بہتی ہے؟ (ہاں/نہیں)';
+            document.querySelectorAll('.btn-purple')[0].textContent = 'ہاں';
+            document.querySelectorAll('.btn-purple')[1].textContent = 'نہیں';
+            document.querySelector('.btn-purple i').nextSibling.textContent = ' واپس';
+        }
+
+        function translateToEnglish() {
+            document.querySelector('h1').textContent = 'Allergy Predictor';
+            document.querySelector('.chat-message:first-child').textContent = 'Welcome to the Allergy Predictor. I\'ll ask you a few questions to assess your risk. Please answer honestly.';
+            document.querySelector('.chat-message:nth-child(2)').textContent = 'Do you experience sneezing or a runny nose? (Yes/No)';
+            document.querySelectorAll('.btn-purple')[0].textContent = 'Yes';
+            document.querySelectorAll('.btn-purple')[1].textContent = 'No';
+            document.querySelector('.btn-purple i').nextSibling.textContent = ' Back';
+        }
+
+        function translateToRussian() {
+            document.querySelector('h1').textContent = 'Предсказатель аллергии';
+            document.querySelector('.chat-message:first-child').textContent = 'Добро пожаловать в Предсказатель аллергии. Я задам вам несколько вопросов для оценки вашего риска. Пожалуйста, отвечайте честно.';
+            document.querySelector('.chat-message:nth-child(2)').textContent = 'Вы испытываете чихание или насморк? (Да/Нет)';
+            document.querySelectorAll('.btn-purple')[0].textContent = 'Да';
+            document.querySelectorAll('.btn-purple')[1].textContent = 'Нет';
+            document.querySelector('.btn-purple i').nextSibling.textContent = ' Назад';
+        }
+    </script>
+</body>
+</html>

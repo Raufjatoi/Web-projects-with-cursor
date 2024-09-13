@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Disease Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #2d2d2d;
+            padding: 20px;
+            border-radius: 20px;
+        }
+        .nav-item {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 0 10px;
+        }
+        .nav-item:hover, .nav-item.active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .nav-item i {
+            font-size: 32px;
+            margin-bottom: 5px;
+        }
+        .nav-item span {
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        /* Custom colors and hover effects */
+        .nav-item.heart { color: #e74c3c; }
+        .nav-item.heart:hover, .nav-item.heart.active { box-shadow: 0 0 15px #e74c3c; }
+        
+        .nav-item.diabetes { color: #3498db; }
+        .nav-item.diabetes:hover, .nav-item.diabetes.active { box-shadow: 0 0 15px #3498db; }
+        
+        .nav-item.flu { color: #f1c40f; }
+        .nav-item.flu:hover, .nav-item.flu.active { box-shadow: 0 0 15px #f1c40f; }
+        
+        .nav-item.cold { color: #2ecc71; }
+        .nav-item.cold:hover, .nav-item.cold.active { box-shadow: 0 0 15px #2ecc71; }
+        
+        .nav-item.allergy { color: #9b59b6; }
+        .nav-item.allergy:hover, .nav-item.allergy.active { box-shadow: 0 0 15px #9b59b6; }
+    </style>
+</head>
+<body>
+    <div class="container-fluid py-5">
+        <h1 class="text-center mb-5">Multiple Disease Predictor (MDP)</h1>
+        
+        <nav class="navbar justify-content-center mb-5">
+            <a href="heart.html" class="nav-item heart">
+                <i class="fas fa-heartbeat"></i>
+                <span>Heart</span>
+            </a>
+            <a href="diabetes.html" class="nav-item diabetes">
+                <i class="fas fa-syringe"></i>
+                <span>Diabetes</span>
+            </a>
+            <a href="flu.html" class="nav-item flu">
+                <i class="fas fa-thermometer"></i>
+                <span>Flu</span>
+            </a>
+            <a href="cold.html" class="nav-item cold">
+                <i class="fas fa-snowflake"></i>
+                <span>Cold</span>
+            </a>
+            <a href="allergy.html" class="nav-item allergy">
+                <i class="fas fa-allergies"></i>
+                <span>Allergy</span>
+            </a>
+        </nav>
+        
+        <div class="text-center">
+            <p>Contributors:</p>
+            <p><a href="#" class="text-decoration-none">Mudeassir </a> | <a href="#" class="text-decoration-none">Rauf </a></p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

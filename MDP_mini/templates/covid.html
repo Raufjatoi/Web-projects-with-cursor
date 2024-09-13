@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 Check</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background-color: #ffe6f0; /* Light pink background */
+            transition: background-color 0.5s ease;
+        }
+        .container { 
+            margin-top: 50px; 
+            text-align: center;
+        }
+        .back-button {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        .btn {
+            transition: transform 0.3s ease;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        .chatbot-response {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            animation: fadeIn 2s;
+        }
+        .smile {
+            color: green;
+        }
+        .sad {
+            color: red;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            animation: fadeIn 2s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="btn btn-secondary back-button">Back</a>
+        <h1 class="text-center">Covid-19 Check</h1>
+        <form method="post" action="/predict_covid">
+            <div class="form-group">
+                <label for="question1">Do you have a fever? (yes/no)</label>
+                <input type="text" class="form-control" id="question1" name="question1">
+            </div>
+            <div class="form-group">
+                <label for="question2">Do you have a cough? (yes/no)</label>
+                <input type="text" class="form-control" id="question2" name="question2">
+            </div>
+            <div class="form-group">
+                <label for="question3">Do you have difficulty breathing? (yes/no)</label>
+                <input type="text" class="form-control" id="question3" name="question3">
+            </div>
+            <div class="form-group">
+                <label for="question4">What is your age?</label>
+                <input type="number" class="form-control" id="question4" name="question4">
+            </div>
+            <button type="submit" class="btn btn-pink btn-block" style="background-color: #ff69b4; color: white;">Submit</button> <!-- Pink submit button -->
+        </form>
+        <div class="chatbot-response">
+            <p id="response-text"></p>
+        </div>
+    </div>
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const question1 = document.getElementById('question1').value.toLowerCase();
+            const question2 = document.getElementById('question2').value.toLowerCase();
+            const question3 = document.getElementById('question3').value.toLowerCase();
+            const question4 = document.getElementById('question4').value;
+            let responseText = '';
+            let responseClass = '';
+
+            if (question1 === 'yes' && question2 === 'yes' && question3 === 'yes' && question4 > 40) {
+                responseText = 'It seems you might be at risk. Please consult a doctor.';
+                responseClass = 'sad';
+            } else {
+                responseText = 'You seem to be in good health!';
+                responseClass = 'smile';
+            }
+
+            const responseElement = document.getElementById('response-text');
+            responseElement.textContent = responseText;
+            responseElement.className = responseClass;
+
+            // Add voice option
+            const msg = new SpeechSynthesisUtterance(responseText);
+            window.speechSynthesis.speak(msg);
+        });
+    </script>
+</body>
+</html>
